@@ -16,6 +16,28 @@
 
 # Mono auto generated files
 mono_crash.*
+# env
+.env
+.env.*
+
+# node
+node_modules
+.next
+
+# python
+__pycache__/
+*.pyc
+.venv
+
+# dotnet
+bin/
+obj/
+
+# logs
+*.log
+
+# docker
+docker-data
 
 # Build results
 [Dd]ebug/

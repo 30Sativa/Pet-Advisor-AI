@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+
+  # =========================
+  # AI SERVICE (Python)
+  # =========================
+  ai-service:
+    build: ./apps/ai-service        #  build từ folder ai-service
+    ports:
+      - "8000:8000"                 #  mở http://localhost:8000
+    env_file:
+      - .env                        # lấy biến môi trường từ file .env
+    depends_on:
+      - postgres                    #  chạy DB trước
+
+  # =========================
+  # DATABASE (Postgres + pgvector)
+  # =========================
+  postgres:
+    image: pgvector/pgvector:pg16   #  DB có vector cho RAG sau này
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: petadvisor
+    ports:
+      - "5433:5432"                 #  để bạn connect bằng tool ngoài
+    volumes:
+      - pgdata:/var/lib/postgresql/data   #  giữ data khi restart
+
+# =========================
+# VOLUME (lưu DB)
+# =========================
+volumes:
+  pgdata:
