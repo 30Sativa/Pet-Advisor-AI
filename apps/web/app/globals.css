@@ -32,6 +32,26 @@ body {
   font-family: var(--font-body), system-ui, sans-serif;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+html.cursor-glow body::before {
+  opacity: 1;
+  background: radial-gradient(
+    120px circle at var(--cursor-x, 50vw) var(--cursor-y, 40vh),
+    rgba(20, 184, 166, 0.12),
+    rgba(20, 184, 166, 0.04) 35%,
+    transparent 60%
+  );
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -60,15 +80,31 @@ body {
   }
 
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition;
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition;
+  }
+
+  .btn:focus-visible {
+    @apply outline-none ring-2 ring-brand/30 ring-offset-2 ring-offset-white;
+  }
+
+  .btn:disabled {
+    @apply cursor-not-allowed opacity-50;
   }
 
   .btn-primary {
     @apply bg-brand text-white shadow-[0_18px_35px_rgba(15,118,110,0.25)] hover:bg-brand-700;
   }
 
+  .btn-primary:active {
+    @apply translate-y-[1px] shadow-[0_10px_20px_rgba(15,118,110,0.2)];
+  }
+
   .btn-outline {
     @apply border border-ink/10 bg-white text-ink hover:border-brand/40 hover:text-brand;
+  }
+
+  .btn-outline:active {
+    @apply translate-y-[1px];
   }
 
   .btn-ghost {
@@ -95,7 +131,7 @@ body {
   }
 
   .input {
-    @apply w-full rounded-2xl border border-border bg-white px-4 py-3 text-sm outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20;
+    @apply w-full min-h-11 rounded-2xl border border-border bg-white px-4 py-3 text-sm outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20;
   }
 }
 

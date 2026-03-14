@@ -2,11 +2,12 @@
 import Link from "next/link";
 import { BrandMark } from "@/app/_components/brand-mark";
 import { NavLinks } from "@/app/_components/nav-links";
+import { MobileBottomNav } from "@/app/_components/mobile-bottom-nav";
 
 const appNavItems = [
   { label: "Tổng quan", href: "/app" },
-  { label: "Hồ sơ thú cưng", href: "/app/pets" },
-  { label: "AI Consultation", href: "/app/consultation" },
+  { label: "Hồ sơ", href: "/app/pets" },
+  { label: "AI Chat", href: "/app/consultation" },
   { label: "Vaccine", href: "/app/vaccines" },
   { label: "Reminder", href: "/app/reminders" },
 ];
@@ -35,14 +36,12 @@ export default function AppLayout({ children }: { children: ReactNode }) {
                 Trang chủ
               </Link>
             </div>
-            <div className="site-container pb-3">
-              <NavLinks items={appNavItems} orientation="horizontal" />
-            </div>
           </div>
 
-          <main className="site-container py-10">{children}</main>
+          <main className="site-container py-10 pb-28 md:pb-10">{children}</main>
         </div>
       </div>
+      <MobileBottomNav items={appNavItems} />
     </div>
   );
 }

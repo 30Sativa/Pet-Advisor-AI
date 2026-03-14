@@ -1,4 +1,4 @@
-import type { AdminUser, Pet, Reminder, Vaccine } from "@/app/_lib/types";
+﻿import type { AdminUser, Pet, Reminder, Vaccine } from "@/app/_lib/types";
 
 export const pets: Pet[] = [
   {
@@ -35,21 +35,21 @@ export const vaccines: Vaccine[] = [
     id: "vac-1",
     petId: "pet-1",
     name: "Dại (Rabies)",
-    date: "2025-11-02",
+    date: "2026-03-28",
     note: "Nhắc lại sau 12 tháng",
   },
   {
     id: "vac-2",
     petId: "pet-1",
     name: "7 bệnh",
-    date: "2025-10-15",
+    date: "2026-02-10",
     note: "Đã hoàn thành mũi 2",
   },
   {
     id: "vac-3",
     petId: "pet-2",
     name: "Care 4",
-    date: "2025-12-01",
+    date: "2026-06-05",
     note: "Hẹn mũi nhắc lại",
   },
 ];
@@ -59,21 +59,21 @@ export const reminders: Reminder[] = [
     id: "rem-1",
     petId: "pet-1",
     title: "Tái khám da liễu",
-    time: "2026-04-02T09:00:00+07:00",
+    time: "2026-03-13T09:00:00+07:00",
     repeat: "1 tháng/lần",
   },
   {
     id: "rem-2",
     petId: "pet-2",
     title: "Nhắc tiêm vaccine",
-    time: "2026-03-25T10:30:00+07:00",
+    time: "2026-03-21T10:30:00+07:00",
     repeat: "Hàng năm",
   },
   {
     id: "rem-3",
     petId: "pet-3",
     title: "Tắm & grooming",
-    time: "2026-03-21T15:00:00+07:00",
+    time: "2026-04-02T15:00:00+07:00",
     repeat: "2 tuần/lần",
   },
 ];

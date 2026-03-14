@@ -1,5 +1,6 @@
 ﻿import type { Metadata } from "next";
 import { Be_Vietnam_Pro, Spectral } from "next/font/google";
+import { CursorEffects } from "@/app/_components/cursor-effects";
 import "./globals.css";
 
 const bodyFont = Be_Vietnam_Pro({
@@ -31,6 +32,7 @@ export default function RootLayout({
   return (
     <html lang="vi">
       <body className={`${bodyFont.variable} ${displayFont.variable} antialiased`}>
+        <CursorEffects />
         {children}
       </body>
     </html>

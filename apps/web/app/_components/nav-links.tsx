@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -35,7 +35,7 @@ export function NavLinks({ items, orientation = "vertical" }: NavLinksProps) {
           <Link
             key={item.href}
             href={item.href}
-            className={`rounded-full px-3 py-2 text-sm font-medium transition ${
+            className={`min-h-11 rounded-full px-4 py-2 text-sm font-medium transition ${
               isActive
                 ? "bg-brand/10 text-brand"
                 : "text-ink/70 hover:text-ink"

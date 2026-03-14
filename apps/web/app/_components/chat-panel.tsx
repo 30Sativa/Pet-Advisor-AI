@@ -44,6 +44,33 @@ const vetRecLabel: Record<NonNullable<Triage["vet_recommendation"]>, string> = {
   none: "Không cần khám",
 };
 
+const quickChips = [
+  "Bỏ ăn",
+  "Nôn",
+  "Tiêu chảy",
+  "Sốt",
+  "Ngứa / rụng lông",
+  "Mệt mỏi",
+];
+
+const nextSteps: Record<Triage["urgency"], string[]> = {
+  critical: [
+    "Liên hệ phòng khám 24/7 gần nhất",
+    "Chuẩn bị lịch sử bệnh và mũi tiêm",
+    "Theo dõi dấu hiệu nguy hiểm liên tục",
+  ],
+  high: [
+    "Đặt lịch khám trong 48-72h",
+    "Ghi lại triệu chứng và thời điểm",
+    "Giảm hoạt động, theo dõi thêm",
+  ],
+  normal: [
+    "Theo dõi tại nhà trong 24-48h",
+    "Đảm bảo uống nước và ăn nhẹ",
+    "Tái đánh giá nếu có dấu hiệu mới",
+  ],
+};
+
 export function ChatPanel() {
   const [messages, setMessages] = useState<ChatMessage[]>([DEFAULT_MESSAGE]);
   const [input, setInput] = useState("");
@@ -153,6 +180,18 @@ export function ChatPanel() {
         </div>
         <div className="border-t border-border px-6 py-4">
           {error ? <p className="mb-3 text-sm text-red-500">{error}</p> : null}
+          <div className="mb-3 flex flex-wrap gap-2">
+            {quickChips.map((chip) => (
+              <button
+                key={chip}
+                type="button"
+                className="rounded-full border border-border bg-white px-3 py-1 text-xs text-ink/70 hover:border-brand/40 hover:text-brand"
+                onClick={() => setInput((prev) => (prev ? `${prev}, ${chip}` : chip))}
+              >
+                {chip}
+              </button>
+            ))}
+          </div>
           <div className="flex items-center gap-3">
             <input
               className="input"
@@ -197,6 +236,17 @@ export function ChatPanel() {
                 </p>
               </div>
             ) : null}
+            <div className="rounded-2xl border border-border bg-white px-4 py-3">
+              <p className="text-xs text-ink/60">Việc nên làm</p>
+              <ul className="mt-2 grid gap-2 text-sm text-ink/70">
+                {nextSteps[triage.urgency].map((step) => (
+                  <li key={step} className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-brand" />
+                    {step}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         ) : (
           <p className="mt-6 text-sm text-ink/60">
