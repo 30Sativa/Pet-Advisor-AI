@@ -1,4 +1,4 @@
-import { ChatPanel } from "@/app/_components/chat-panel";
+﻿import { ChatPanel } from "@/app/_components/chat-panel";
 
 export default function ConsultationPage() {
   return (

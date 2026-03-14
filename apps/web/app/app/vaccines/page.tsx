@@ -1,4 +1,4 @@
-import { vaccines } from "@/app/_lib/mock-data";
+﻿import { vaccines } from "@/app/_lib/mock-data";
 import { formatDate } from "@/app/_lib/format";
 
 export default function VaccinesPage() {

@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+﻿import type { ReactNode } from "react";
 import Link from "next/link";
 import { BrandMark } from "@/app/_components/brand-mark";
 import { NavLinks } from "@/app/_components/nav-links";

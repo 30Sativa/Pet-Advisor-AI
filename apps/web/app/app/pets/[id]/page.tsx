@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { notFound } from "next/navigation";
 import { pets } from "@/app/_lib/mock-data";
 
@@ -26,7 +26,7 @@ export default function PetDetailPage({ params }: PetDetailPageProps) {
       </div>
 
       <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
-        <div className="card p-6">
+        <div className="card card-raise p-6">
           <h2 className="text-lg font-semibold">Thông tin cơ bản</h2>
           <div className="mt-4 grid gap-3 text-sm text-ink/70">
             <div className="flex justify-between">
@@ -52,7 +52,7 @@ export default function PetDetailPage({ params }: PetDetailPageProps) {
           </div>
         </div>
 
-        <div className="card p-6">
+        <div className="card card-raise p-6">
           <h2 className="text-lg font-semibold">Ghi chú sức khỏe</h2>
           <p className="mt-3 text-sm text-ink/70">
             Chưa có dữ liệu bệnh nền. Bạn có thể cập nhật tiền sử bệnh, dị ứng,

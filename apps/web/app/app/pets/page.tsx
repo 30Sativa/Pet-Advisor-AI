@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { pets } from "@/app/_lib/mock-data";
 
 export default function PetsPage() {
@@ -14,7 +14,7 @@ export default function PetsPage() {
 
       <div className="grid gap-6 md:grid-cols-3">
         {pets.map((pet) => (
-          <div key={pet.id} className="card p-6">
+          <div key={pet.id} className="card card-raise p-6">
             <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand/10 text-lg font-semibold text-brand">
               {pet.name.slice(0, 1)}
             </div>

@@ -1,4 +1,4 @@
-import { reminders } from "@/app/_lib/mock-data";
+﻿import { reminders } from "@/app/_lib/mock-data";
 import { formatDateTime } from "@/app/_lib/format";
 
 export default function RemindersPage() {
@@ -14,7 +14,7 @@ export default function RemindersPage() {
 
       <div className="grid gap-6 md:grid-cols-2">
         {reminders.map((item) => (
-          <div key={item.id} className="card p-6">
+          <div key={item.id} className="card card-raise p-6">
             <div className="flex items-center justify-between">
               <h2 className="text-lg font-semibold">{item.title}</h2>
               <span className="badge">{item.repeat}</span>

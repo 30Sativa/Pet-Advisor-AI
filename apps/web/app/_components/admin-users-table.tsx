@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useMemo, useState } from "react";
 import type { AdminUser } from "@/app/_lib/types";
@@ -7,7 +7,7 @@ import { formatDateTime } from "@/app/_lib/format";
 const statusLabel: Record<string, string> = {
   active: "Đang hoạt động",
   trial: "Dùng thử",
-  inactive: "Ngưng hoạt động",
+  inactive: "Ngừng hoạt động",
 };
 
 const statusStyle: Record<string, string> = {
@@ -43,7 +43,7 @@ export function AdminUsersTable({ users }: AdminUsersTableProps) {
           <div className="flex flex-wrap items-center gap-4">
             <input
               className="input md:max-w-xs"
-              placeholder="Tìm theo tên hoặc sđt"
+              placeholder="Tìm theo tên hoặc số"
               value={query}
               onChange={(event) => setQuery(event.target.value)}
             />
@@ -55,7 +55,7 @@ export function AdminUsersTable({ users }: AdminUsersTableProps) {
               <option value="all">Tất cả trạng thái</option>
               <option value="active">Đang hoạt động</option>
               <option value="trial">Dùng thử</option>
-              <option value="inactive">Ngưng hoạt động</option>
+              <option value="inactive">Ngừng hoạt động</option>
             </select>
           </div>
         </div>
@@ -90,9 +90,7 @@ export function AdminUsersTable({ users }: AdminUsersTableProps) {
                     >
                       {statusLabel[user.status]}
                     </span>
-                    <span className="text-ink/70">
-                      {formatDateTime(user.lastActive)}
-                    </span>
+                    <span className="text-ink/70">{formatDateTime(user.lastActive)}</span>
                   </button>
                 ))}
               </div>

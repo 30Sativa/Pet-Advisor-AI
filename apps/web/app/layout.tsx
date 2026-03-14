@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Be_Vietnam_Pro, Spectral } from "next/font/google";
 import "./globals.css";
 

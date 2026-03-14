@@ -1,9 +1,9 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 export default function AppOverviewPage() {
   return (
     <div className="space-y-8">
-      <div className="card p-8">
+      <div className="card card-raise p-8">
         <p className="text-sm text-ink/60">Tổng quan</p>
         <h1 className="mt-2 text-3xl font-semibold">Xin chào!</h1>
         <p className="mt-3 text-lg text-ink/70">
@@ -38,7 +38,7 @@ export default function AppOverviewPage() {
             href: "/app/reminders",
           },
         ].map((item) => (
-          <div key={item.title} className="card p-6">
+          <div key={item.title} className="card card-raise p-6">
             <h2 className="text-lg font-semibold">{item.title}</h2>
             <p className="mt-2 text-sm text-ink/70">{item.desc}</p>
             <Link className="mt-4 inline-flex text-sm font-semibold text-brand" href={item.href}>
@@ -48,7 +48,7 @@ export default function AppOverviewPage() {
         ))}
       </div>
 
-      <div className="card grid gap-4 p-6 md:grid-cols-3">
+      <div className="card card-raise grid gap-4 p-6 md:grid-cols-3">
         {[
           { label: "Hồ sơ thú cưng", value: "3" },
           { label: "Vaccine sắp tới", value: "2" },

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 
@@ -29,7 +29,7 @@ export function LeadForm() {
 
   const validate = () => {
     if (!form.phone.trim() || !form.email.trim() || !form.petType.trim()) {
-      setMessage("Vui lòng nhập đầy đủ sđt, email và loại thú cưng.");
+      setMessage("Vui lòng nhập đầy đủ số điện thoại, email và loại thú cưng.");
       return false;
     }
     return true;

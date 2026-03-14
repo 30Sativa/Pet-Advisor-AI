@@ -83,7 +83,37 @@ body {
     @apply rounded-[var(--radius-xl)] border border-border bg-white shadow-sm;
   }
 
+  .card-raise {
+    @apply transition duration-200 ease-out hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  .reveal-up {
+    opacity: 0;
+    transform: translateY(18px);
+    animation: reveal-up 0.7s ease-out forwards;
+    animation-delay: var(--delay, 0ms);
+  }
+
   .input {
     @apply w-full rounded-2xl border border-border bg-white px-4 py-3 text-sm outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20;
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-up {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 }
