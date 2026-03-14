@@ -27,8 +27,51 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data #  giữ data khi restart
 
+  # =========================
+  # SQL SERVER (Database)
+  # =========================
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Admin@12345"
+      MSSQL_PID: "Developer"
+    ports:
+      - '1433:1433' #  để bạn connect bằng SSMS hoặc DBeaver (localhost:1433)
+    volumes:
+      - sqlserverdata:/var/opt/mssql #  giữ data khi restart
+
+  # =========================
+  # API SERVICE (.NET C#)
+  # =========================
+  api:
+    image: mcr.microsoft.com/dotnet/sdk:8.0
+    working_dir: /app/PetAdvisorSystem.WebAPi
+    ports:
+      - '5000:5000' #  có thể truy cập qua http://localhost:5000
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5000
+    volumes:
+      - ./apps/api/PetAdvisorSystem:/app #  mount code để enable dotnet watch (hot reload)
+    command: dotnet watch run --no-launch-profile
+
+  # =========================
+  # WEB FRONTEND (Next.js)
+  # =========================
+  web:
+    image: node:20
+    working_dir: /app
+    ports:
+      - '3000:3000' #  mở http://localhost:3000
+    volumes:
+      - ./apps/web:/app #  mount code vào container
+      - /app/node_modules # tránh mounted đè node_modules
+    command: bash -c "npm install && npm run dev"
+
 # =========================
-# VOLUME (lưu DB)
+# VOLUMES (lưu DB)
 # =========================
 volumes:
   pgdata:
+  sqlserverdata:

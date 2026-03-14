@@ -24,10 +24,58 @@ mono_crash.*
 node_modules
 .next
 
-# python
+# python / data science
 __pycache__/
-*.pyc
-.venv
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+.env/
+
+# Build / Distribution
+build/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Type checkers
+.mypy_cache/
+.pyre/
+.typeguard/
 
 # dotnet
 bin/
@@ -438,3 +486,14 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# =========================
+# Application Specific Rules
+# =========================
+# Ignore development/local appsettings files
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.json
+
+# Keep the base appsettings.json as a template
+!appsettings.json
